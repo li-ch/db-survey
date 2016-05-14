@@ -1,0 +1,139 @@
+
+\section{Application}
+Integration of geographical information into network service has rendered new services possible \cite{Huang}, which include 
+\begin{enumerate}
+\item \textit{Adding location attributes to user profiles.} The geographical information is called geo-Tag, which could be used for later analysis, such as population survey.
+
+\item \textit{Finding people}. People usually searched for can be divided into two classes: persistently connected to or temporarily connected to the query launcher. Persistent connections includes friendship, family relation, etc. Temporary connections are connections exist for a short period of time. When a man needs special services, for example, he loses his key, he searches the nearby for special assistance. The service provider and the man connects temporarily. 
+
+\item \textit{Sharing content and collaborating.} People don't know each other are able to collaborate with each other via geo-social network. Google Map has enabled users to add description to a particular site, which could be a restaurant, a tourist spot, a hotel etc. Users can refer to previous descriptions when searching on the Map.
+
+\item \textit{Intelligent recommendation}. Make recommendation of potential users and places of interests.
+\end{enumerate}
+
+\section{Queries}
+\subsection{Geo-Circle of Friend Query}
+
+W. Liu et al. \cite{Liu} proposed the Geo-Circle of Friend Query (gCoFQ) which, given a query point q (an user in the social network), returns a group of q's friends who are both socially and geographically close to each other. 
+
+To make the problem more clear, consider the undirected weighted graph $G=<V,E,W>$ with vertex set V, edge set E and function W:$E \to R$. For $u, v \in V$, $(u, v) \in E$ if u and v are friends and $W(u,v)$ is the measure of friendship between u and v. The form of function W varies with respect to different scenarios. In the case of messenger app, W could be defined as the frequency of communication between u and v. In the case of co-authorship, $W(u,v)$ can be ${1} / {\sum_i \frac{1}{x_i}}$, where $x_i$ is the number of authors in the ith paper u and v co-write. Even in the same application scenario, W may be constructed in different ways. We will come back to this issue latter.
+	
+Based on the definition of W, we define closeness between u and v as
+\begin{align*}
+closeness(u,v) = \mbox{the accumulative weights of the shortest path between u and v in G} 
+\end{align*}
+
+For geographical distance between u and v, we use Euclidean distance, which is denoted by $||u,v||$.
+
+Given the social closeness and geographical closeness of u and v, we are able to define the geo-social distance between u and v, 
+$$
+dist(u,v) = \lambda \frac{||u,v||}{||V||} + (1 - \lambda) \frac{closeness(u,v)}{closeness(V)}
+$$
+where $\lambda$ is a parameter, $||V||$ is the maximum Euclidean distance between any pair of user in V and closeness(V) the maximum social distance between any pair of users. 
+
+The ranking function of a group of users S is 
+$$
+dist(S) \doteq \max_{u,v \in S} dist(u,v)
+$$
+
+\textbf{Geo-Social Circle of Friend Query} Given a query point q and parameter k, Geo-Social Circle of Friend Query returns a subset $V_q \in V$, s.t.
+\begin{align}
+q & \in V_q \\
+|V_q| & = k + 1 \\
+dist(V_q) & \mbox{ is the smallest}
+\end{align}
+
+\subsection{Socio-Spatial Group Query}
+Similar to Geo-Social Circle of Friend Query, given a parameter k, Social-Spatial Group Query(SSGQ) \cite{Yang} returns a group of k users. The difference is that Geo-Social Circle of Friend Query will returns k + 1 users which includes the query point q. On the other hand, the query point q in Socio-Spatial Group Query is not a user but a location instead.
+
+The change of query point from a user to a location makes sense for real world applications. For example, location-based advertisements can leverage SSGQ to a group of friends for a preferred restaurant to order to push mobile coupon. 
+
+Borrowing the notion defined in Geo-Social Circle of Friend Query, we could immediately give a similar problem statement. 
+
+\textbf{Socio-Spatial Group Query} 
+Given a query point q(a location) and parameter k, Socio-Spatial Group Query returns a subset $V_q \in V$, s.t., 
+
+\begin{align} 
+|V_q| = k 
+\end{align}
+
+\begin{equation} \label{eq:SSGQ_1}
+\max \{dist(V_q), \max_{v \in V_q} \lambda \frac{||q,v||}{||V||}\} \mbox{ is the smallest.} 
+\end{equation}
+
+The intuition behind equation (\ref{eq:SSGQ_1}) is that the selected k friends should be socially close to each other and geographical close to each other as well as the query point.
+
+Indeed the query proposed by Yang, D.N. et al. \cite{Yang} is slightly different from the one stated above. The difference is twofold. 
+\begin{enumerate}
+\item \textbf{Quantification of the idea that returned users should be close to query point.} What we propose is that $\max_{v \in V_q} ||q,v|| / ||V||$ should be as small as possible. What Yang D.N. \cite{Yang} suggested is to optimize $\sum_{v \in V_q} ||q,v|| / ||V||$, i.e., the sum of distance of vertex in $V_q$ to query point q.
+
+\item \textbf{Social Closeness} While Geo-Social Circle of Friend Query use the accumulative weight of shortest path between vertex pair to measure the friendship, in Socio-Spatial Group Query, the average of people a user $v \in V_q$ doesn't know in group $V_q$ is used to measure the social connectivity between users.
+\end{enumerate}
+
+\textbf{Socio-Spatial Group Query}
+Given a query point q, a parameter k, and a control parameter n, the Socio-Spatial Group Query returns a group of users $V_q \in V$, s.t.,
+\begin{align}
+|V_q| & = k \\
+\sum_{v \in V_q} (|V_q| - & 1 - N_v) / |V_q| \le n \\
+\sum_{v \in V_q} ||v,q|| & \mbox{ is the smallest}
+\end{align}
+
+\subsection{Geo-Social Ranking Top-k Query}
+The aforementioned queries all focus on returning a group of users instead of individual user. Also, the social connectivity is evaluated within a specific group of users. Geo-Social Ranking Top-k(GSR Top-k query) Query proposed by Armenatzoglou, N. \cite{Nikos} is able to extract the top-k users considering the their distance to the query point q, the number of friends in the vicinity of q, and possible social connectivity of those friends. 
+
+In Geo-Circle of Friends query, we use $dist(V_q)$ to measure a group of user $V_q$. In Socio-Spatial Group Query, $\max \{dist(V_q), \max_{v \in V_q} \lambda \frac{||q,v||}{||V||}\}$ is used to filter the best group. Similarly, in Geo-Social Ranking Top-k Query, we need an evaluation function for each user. In the following discussion, we denote this function $f$.
+
+\textbf{GSR Top-k query}. Given a query point q, a positive integer k, and a GSR function $f$, the query returns a list of k tuples $R = (\{ v_1, f(q, v_1), V_1 \}, ..., \\ \{ v_k, f(q, v_k), V_k\})$ such that for each $1 \le i \le k$:
+\begin{align}
+f(q,v_i) & \ge f(q,v_{i + 1}) \mbox{ and} \\
+\not \exists \{u,f(q,u),V_u \} & \notin R: f(q,v_k) < f(q,u)
+\end{align}
+
+The remaining problem becomes how to define $f$. Suppose that we want a selected vertex v to process the following tow properties:
+\begin{enumerate}
+\item \textbf{v should be close to q}. This can be achieved by minimizing $||v,q||$. 
+\item \textbf{v have a set of friends that are close to q}. This notion could be more trickier. Let the set of vertex that are adjacent to v be $V_v$. Not all vertex in $V_v$ are close to q. So we could not quantify this notion by $|V_v|$. We denote the set of friends close to q by $N_v \subset V_v$. Now the question becomes: what vertex in $V_v$ should be included in $N_v$?
+\end{enumerate}
+
+There could be many way to find $N_v$. The simplest way could be use a fix threshold r: $N_v = \{ u | u \in V_v \& \& ||u,v|| \le r\}$. But how can we determine the r?
+
+One solution is to choose an r such that it gives the optimized value of $f$. We can find the r only after we know the form of f. 
+
+One simplest form of $f$ could be 
+\begin{equation}
+f = \lambda |N_v| + (1 - \lambda) (- ||v,q||)
+\end{equation}
+
+As before, $\lambda$ is a parameter controlling the relative importance of the two terms. By optimizing this function we can not find a set of $N_v$ that are in the vicinity of q, since it imposes no restriction on the location of $N_v$. Inspired by this, we change it to 
+
+\begin{equation}
+f = \lambda |N_v| + (1 - \lambda) ( - \sum_{u \in N_v} ||u,q||)
+\end{equation}
+
+Adding the normalization terms F ($F \doteq \max_{v \in V} |V_v|$) the maximum degree of any vertex in G and C ($C \doteq \max_{v \in V} ||v,q||$) the maximum distance from any vertex to q,
+
+\begin{equation}
+f = \lambda {|N_v| \over F} + (1 - \lambda)(1 - \frac{\sum_{u \in N_v}||u,q||}{F*C})
+\end{equation}
+
+To see how $f$ changes if we include one more v's friend u in $N_v$, as $|N_v|$ increases by one, $f$ would increase by $\lambda \over F$. Also, $f$ would decrease by $(1 - \lambda) \frac{||q,u||}{F*C}$.
+
+In order for u to be included in $f$, the positive contribution should exceed the negative:
+\begin{align}
+\frac{\lambda}{F} \ge (1 - \lambda) \frac{||q,u||}{F*C} \\
+\longrightarrow ||q,u|| \le \frac{\lambda C}{1 - \lambda}
+\end{align}
+
+This suggests that $r = \frac{\lambda C}{1 - \lambda}$, and $N_v = \{ u | u \in V_v \& \& ||u,v|| \le \frac{\lambda C}{1 - \lambda} \}$
+
+Armenatzoglou, N.\cite{Nikos} also mentions several other way of constructing $f$. The difference between these functions is threefold:
+\begin{enumerate}
+\item The way to characterize the closeness between a user v and the query point q.
+\item The way to characterize the closeness of a user v's relevant friend to query point q.
+\item The way to combine the above two features. What we have explored so far are all linear combination. One advantage of linear combination is that it is easy to include more than two features. The queries we investigate so far consider only social and spatial features.
+\end{enumerate}
+
+\subsection{Geo-Social Keyword Search}
+We have mentioned that linear combination allows easy extension of features to higher dimensions. Geo-Social Keyword Search follows just this line and textual information is utilized. 
+
+To investigate the motivation of doing so, we take Google Map as an example of geographic and textual integration. Typical example of such search may be "Chinese restaurants nearby". 
