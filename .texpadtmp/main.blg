@@ -1,0 +1,50 @@
+This is BibTeX, Version 0.99d (TeX Live 2015)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: /Users/li/Documents/db-survey/.texpadtmp/main.aux
+The style file: acm.bst
+Database file #1: ../bio.bib
+Database file #2: ../sys.bib.bib
+Warning--to sort, need author or key in 4qrmongo
+Warning--to sort, need author or key in arcgis
+You've used 12 entries,
+            2253 wiz_defined-function locations,
+            604 strings with 6008 characters,
+and the built_in function-call counts, 4329 in all, are:
+= -- 411
+> -- 197
+< -- 0
++ -- 83
+- -- 70
+* -- 324
+:= -- 665
+add.period$ -- 36
+call.type$ -- 12
+change.case$ -- 69
+chr.to.int$ -- 0
+cite$ -- 14
+duplicate$ -- 170
+empty$ -- 369
+format.name$ -- 70
+if$ -- 936
+int.to.chr$ -- 0
+int.to.str$ -- 12
+missing$ -- 11
+newline$ -- 63
+num.names$ -- 20
+pop$ -- 96
+preamble$ -- 1
+purify$ -- 58
+quote$ -- 0
+skip$ -- 113
+stack$ -- 0
+substring$ -- 257
+swap$ -- 50
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 46
+warning$ -- 2
+while$ -- 36
+width$ -- 14
+write$ -- 124
+(There were 2 warnings)

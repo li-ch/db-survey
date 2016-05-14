@@ -1,0 +1,71 @@
+\begin{thebibliography}{10}
+
+\bibitem{arcgis}
+Arcgis api guide.
+\newblock
+  \url{https://developers.arcgis.com/javascript/latest/guide/index.html}.
+\newblock Accessed: 2016-05-10.
+
+\bibitem{4qrmongo}
+Mongodb: Foursquare.
+\newblock \url{https://www.mongodb.com/customers/foursquare}.
+\newblock Accessed: 2016-05-10.
+
+\bibitem{amir2007buddy}
+{\sc Amir, A., Efrat, A., Myllymaki, J., Palaniappan, L., and Wampler, K.}
+\newblock Buddy tracking—efficient proximity detection among mobile friends.
+\newblock {\em Pervasive and Mobile Computing 3}, 5 (2007), 489--511.
+
+\bibitem{Nikos}
+{\sc Armenatzoglou, N., Ahuja, R., and Papadias, D.}
+\newblock Geo-social ranking: functions and query processing.
+\newblock {\em The VLDB Journal—The International Journal on Very Large Data
+  Bases 24}, 6 (2015), 783--799.
+
+\bibitem{armenatzoglou2013general}
+{\sc Armenatzoglou, N., Papadopoulos, S., and Papadias, D.}
+\newblock A general framework for geo-social query processing.
+\newblock {\em Proceedings of the VLDB Endowment 6}, 10 (2013), 913--924.
+
+\bibitem{Huang}
+{\sc Huang, Q., and Liu, Y.}
+\newblock On geo-social network services.
+\newblock In {\em Geoinformatics, 2009 17th International Conference on\/}
+  (2009), Ieee, pp.~1--6.
+
+\bibitem{khoshgozaran2009private}
+{\sc Khoshgozaran, A., and Shahabi, C.}
+\newblock Private buddy search: Enabling private spatial queries in social
+  networks.
+\newblock In {\em Computational Science and Engineering, 2009. CSE'09.
+  International Conference on\/} (2009), vol.~4, IEEE, pp.~166--173.
+
+\bibitem{Liu}
+{\sc Liu, W., Sun, W., Chen, C., Huang, Y., Jing, Y., and Chen, K.}
+\newblock Circle of friend query in geo-social networks.
+\newblock In {\em Database Systems for Advanced Applications\/} (2012),
+  Springer, pp.~126--137.
+
+\bibitem{restful}
+{\sc Richardson, L., and Ruby, S.}
+\newblock {\em RESTful web services}.
+\newblock " O'Reilly Media, Inc.", 2008.
+
+\bibitem{scellato2010distance}
+{\sc Scellato, S., Mascolo, C., Musolesi, M., and Latora, V.}
+\newblock Distance matters: Geo-social metrics for online social networks.
+\newblock In {\em WOSN\/} (2010).
+
+\bibitem{Yang}
+{\sc Yang, D.-N., Shen, C.-Y., Lee, W.-C., and Chen, M.-S.}
+\newblock On socio-spatial group query for location-based social networks.
+\newblock In {\em Proceedings of the 18th ACM SIGKDD international conference
+  on Knowledge discovery and data mining\/} (2012), ACM, pp.~949--957.
+
+\bibitem{yiu2010efficient}
+{\sc Yiu, M.~L., {\v{S}}altenis, S., Tzoumas, K., et~al.}
+\newblock Efficient proximity detection among mobile users via self-tuning
+  policies.
+\newblock {\em Proceedings of the VLDB Endowment 3}, 1-2 (2010), 985--996.
+
+\end{thebibliography}
