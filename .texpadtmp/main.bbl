@@ -6,6 +6,11 @@ Arcgis api guide.
   \url{https://developers.arcgis.com/javascript/latest/guide/index.html}.
 \newblock Accessed: 2016-05-10.
 
+\bibitem{factual}
+Factual.
+\newblock \url{https://www.factual.com/}.
+\newblock Accessed: 2016-05-10.
+
 \bibitem{4qrmongo}
 Mongodb: Foursquare.
 \newblock \url{https://www.mongodb.com/customers/foursquare}.
@@ -26,6 +31,34 @@ Mongodb: Foursquare.
 {\sc Armenatzoglou, N., Papadopoulos, S., and Papadias, D.}
 \newblock A general framework for geo-social query processing.
 \newblock {\em Proceedings of the VLDB Endowment 6}, 10 (2013), 913--924.
+
+\bibitem{bao2012geofeed}
+{\sc Bao, J., Mokbe, M.~F., and Chow, C.-Y.}
+\newblock Geofeed: A location aware news feed system.
+\newblock In {\em Data Engineering (ICDE), 2012 IEEE 28th International
+  Conference on\/} (2012), IEEE, pp.~54--65.
+
+\bibitem{developers2012neo4j}
+{\sc Developers, N.}
+\newblock Neo4j.
+\newblock {\em Graph NoSQL Database [online]\/} (2012).
+
+\bibitem{doytsher2010querying}
+{\sc Doytsher, Y., Galon, B., and Kanza, Y.}
+\newblock Querying geo-social data by bridging spatial networks and social
+  networks.
+\newblock In {\em Proceedings of the 2nd ACM SIGSPATIAL International Workshop
+  on Location Based Social Networks\/} (2010), ACM, pp.~39--46.
+
+\bibitem{doytsher2012managing}
+{\sc Doytsher, Y., Galon, B., and Kanza, Y.}
+\newblock Managing socio-spatial data as large graphs.
+\newblock In {\em 21st International World Wide Web Conference\/} (2012).
+
+\bibitem{memcached}
+{\sc Fitzpatrick, B.}
+\newblock Distributed caching with memcached.
+\newblock {\em Linux journal 2004}, 124 (2004), 5.
 
 \bibitem{Huang}
 {\sc Huang, Q., and Liu, Y.}
